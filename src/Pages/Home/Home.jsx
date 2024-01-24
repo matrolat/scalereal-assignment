@@ -10,6 +10,12 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
     height: "89.5vh",
+    [theme.breakpoints.down('sm')]: {
+      flexDirection:"column",
+      width:"100vw",
+      overflow:"scroll",
+      height:"auto"
+    },
   },
   left: {
     width: "50%",
@@ -17,6 +23,10 @@ const useStyles = makeStyles((theme) => ({
     border: 0,
     borderRight: "solid 1px rgb(208, 215, 222)",
     zIndex:1,
+    [theme.breakpoints.down('sm')]: {
+      width:"100vw",
+      marginBottom:30
+    },
   },
   right: {
     width: "50%",
@@ -24,6 +34,10 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    [theme.breakpoints.down('sm')]: {
+      width:"100vw",
+      height:"50vh"
+    },
   },
 }));
 

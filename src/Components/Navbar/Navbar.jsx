@@ -50,21 +50,22 @@ const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
   // },
 }));
 const Search = styled('div')(({ theme }) => ({
-    height:50,
+    height:40,
     justifyContent:"center",
   position: 'relative',
+
   borderRadius: theme.shape.borderRadius,
   border: 'solid 1px rgb(208, 215, 222)',
+  width:"80%",
   backgroundColor: alpha(theme.palette.common.white, 0.15),
   '&:hover': {
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
-    width: 'auto',
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
+  },
+  marginRight: theme.spacing(2),
+  
+  [theme.breakpoints.down('sm')]: { 
+    width: '50%',
+    // marginLeft:10
   },
 }));
 
@@ -77,23 +78,29 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+ 
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'black',
   height:"100%",
-  justifyContent:"center",
+  // justifyContent:"flexStart",
   zIndex:0,
   backgroundColor:"white",
   borderRadius:10,
-  width: '80vw',
+  width: '100%',
+  [theme.breakpoints.down('sm')]: {
+   
+  
+    width:"100%"
+  },
 
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
-    width: '80vw',
+    width: '80%',
     [theme.breakpoints.up('md')]: {
       width: '80vw',
     },
@@ -217,15 +224,15 @@ export default function Navbar({handleFilter,searchTerm,handleSort,sortParam}) {
           </IconButton>
 
 
-          <FormControl sx={{ m: 1, minWidth: 120,height:50,marginLeft:-4 }}>
-        <InputLabel id="demo-simple-select-helper-label" sx={{ textAlign: 'center',marginRight:20,backgroundColor:"rgb(246, 248, 250)" }}>Sort By...</InputLabel>
-        <Select
+          <FormControl sx={{ m: 1, minWidth: 120,maxHeight:40,marginLeft:-4 }}>
+        <InputLabel id="demo-simple-select-helper-label" sx={{ textAlign: 'center',marginRight:20,marginTop:-0.5,backgroundColor:"rgb(246, 248, 250)" }}>Sort By...</InputLabel>
+        <Select 
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
           value={sortParam}
           label="sort"
           onChange={handleSort}
-          sx={{height:50}}
+          sx={{height:40}}
          
          
         >

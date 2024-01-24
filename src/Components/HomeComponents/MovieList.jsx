@@ -11,13 +11,19 @@ const useStyles = makeStyles((theme) => ({
         // backgroundColor:"red",
         borderBottom: 'solid 1px rgb(208, 215, 222)',
         cursor:"pointer",
-        zIndex:1
+        zIndex:1,
+    
+        
 
     },
     episode_no:{
         width:"20%",
         color:"gray",
         border:0,
+        [theme.breakpoints.down('sm')]: {
+          // backgroundColor:"red",
+          fontSize:14
+        },
     },
     episode_title:{
         width:"65%",
@@ -25,13 +31,24 @@ const useStyles = makeStyles((theme) => ({
         fontWeight:"500",
         textAlign:"left",
         // paddingLeft:20,
-        background:""
+        background:"",
+        [theme.breakpoints.down('sm')]: {
+          // backgroundColor:"red",
+          fontWeight:"500",
+          fontSize:14
+        },
+
         // height:"100%",
         // border:0,
         // borderRight: 'solid 1px rgb(208, 215, 222)',
     },
     episode_date:{
 
+      [theme.breakpoints.down('sm')]: {
+        // backgroundColor:"red",
+
+        fontSize:14
+      },
         // width:"10%",
         // height:"100%",
     

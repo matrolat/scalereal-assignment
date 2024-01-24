@@ -13,7 +13,11 @@ const useStyles = makeStyles((theme) => ({
        display:"flex",
        flexDirection:"column",
        alignItems:"flex-start",
-       textAlign:"left"
+       textAlign:"left",
+       [theme.breakpoints.down('sm')]: {
+    
+        height:"auto",
+      },
     },
     descp:{
 
@@ -51,7 +55,7 @@ export default function MovieDescription({data,episodeId}) {
             variant="h5"
             noWrap
             component="div"
-            sx={{ display: { xs: 'none', sm: 'block' },color:"black",marginTop:3,fontWeight:400, }}
+            sx={{ display: { xs: 'block', sm: 'block' },color:"black",marginTop:3,fontWeight:400, }}
           >
             Episode {movieData.episode_id}: {movieData.title}
           </Typography>
