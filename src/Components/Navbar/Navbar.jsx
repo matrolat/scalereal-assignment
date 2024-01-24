@@ -37,6 +37,18 @@ const MenuProps = {
   },
 };
 
+const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
+    width:270,
+ 
+  //   borderBottom: 'solid 1px rgb(208, 215, 222)',
+  // '&:hover': {
+  //     backgroundColor: alpha(theme.palette.common.white, 0.25),
+  //   },
+    
+  //   [theme.breakpoints.up('sm')]: {
+    
+  // },
+}));
 const Search = styled('div')(({ theme }) => ({
     height:50,
     justifyContent:"center",
@@ -205,7 +217,7 @@ export default function Navbar({handleFilter,searchTerm,handleSort,sortParam}) {
           </IconButton>
 
 
-          <FormControl sx={{ m: 1, minWidth: 120,height:50 }}>
+          <FormControl sx={{ m: 1, minWidth: 120,height:50,marginLeft:-4 }}>
         <InputLabel id="demo-simple-select-helper-label" sx={{ textAlign: 'center',marginRight:20,backgroundColor:"rgb(246, 248, 250)" }}>Sort By...</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
@@ -214,12 +226,18 @@ export default function Navbar({handleFilter,searchTerm,handleSort,sortParam}) {
           label="sort"
           onChange={handleSort}
           sx={{height:50}}
+         
+         
         >
-          <MenuItem value="">
-            <em>Sort By :</em>
-          </MenuItem>
-          <MenuItem value={"episode_id"}>Episode</MenuItem>
-          <MenuItem value={"release_date"}>Year</MenuItem>
+          <StyledMenuItem value="" divider={true} sx={{marginTop:-1}}>
+            {/* <em>Sort By :</em> */}
+            <div style={{width:"100%", display:"flex",justifyContent:"space-between"}}>
+              <span>Sort By :</span>
+              <span>x</span>
+            </div>
+          </StyledMenuItem>
+          <StyledMenuItem value={"episode_id"} divider={true}>Episode</StyledMenuItem>
+          <StyledMenuItem value={"release_date"} sx={{marginBottom:10}} divider={true}>Year</StyledMenuItem>
           {/* <MenuItem value={30}>Thirty</MenuItem> */}
         </Select>
         {/* <FormHelperText>With label + helper text</FormHelperText> */}

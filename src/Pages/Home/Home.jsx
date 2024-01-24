@@ -38,15 +38,27 @@ export default function Home() {
 
   const handleSort = (event) => {
     const selectedSortParam = event.target.value;
-    console.log(selectedSortParam);
-  
     setSortParam(selectedSortParam);
+    if(event.target.value==="")
+    {
+          const filteredMovies = movieData.filter((movie) =>           
+          movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setFilteredMovie(filteredMovies);
+        
+    }
+    else{
 
-    const sortedMovies = sortingHelper(selectedSortParam);
+        console.log(selectedSortParam);
+      
+        setSortParam(selectedSortParam);
     
-    console.log("after");
-    console.log(sortedMovies);
-    setFilteredMovie(sortedMovies);
+        const sortedMovies = sortingHelper(selectedSortParam);
+        
+        console.log("after");
+        console.log(sortedMovies);
+        setFilteredMovie(sortedMovies);
+    }
   };
 
   const sortingHelper=(selectedSortParam)=>{
@@ -68,9 +80,9 @@ export default function Home() {
       setFilteredMovie(movieData)
     }
     else{
-
         const filteredMovies = movieData.filter((movie) =>
-          movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+        
+          movie.title.toLowerCase().includes(e.target.value.toLowerCase())
         );
         setFilteredMovie(filteredMovies);
     }
@@ -90,7 +102,12 @@ export default function Home() {
 
       const updatedMovieData = [...res.data.results];
       SetMovieData(updatedMovieData);
-      setFilteredMovie(updatedMovieData);
+        setSearchTerm("");
+        setSortParam("");
+        SetMovieDescId(-1);
+      
+        setFilteredMovie(updatedMovieData);
+      
       console.log(updatedMovieData);
     } catch (error) {
       console.error("Error fetching movie data:", error);
